@@ -1,0 +1,31 @@
+@if(geminiService.source() === 'video') {
+	<video [src]="geminiService.imageSource()" alt="Uploaded Video" controls>
+		Your browser does not support the video tag.
+	</video>
+	<div class="description">
+		<h1>Language</h1>
+		<p><strong>Name:</strong> {{ geminiService.videoResult().language.name }}</p>
+		<p><strong>Confidence:</strong> {{ geminiService.videoResult().language.confidence }}</p>
+		<h1>Description</h1>
+		<p>{{ geminiService.videoResult().description }}</p>
+		<h1>Signs</h1>
+		<ul>
+			@for (sign of geminiService.videoResult().signs; track sign.gloss) {
+				<li>
+					<p><strong>Gloss:</strong> {{ sign.gloss }}</p>
+					<p><strong>Translation:</strong> {{ sign.translation }}</p>
+				</li>
+			}
+		</ul>
+	</div>
+} @else {
+	<img [src]="geminiService.imageSource()" alt="history">
+	<div class="description">
+		<h1>Language</h1>
+		<h2>{{geminiService.result().language}}</h2>
+		<h1>Symbol</h1>
+		<h2>{{geminiService.result().symbol}}</h2>
+		<h1>Description</h1>
+		<p>{{geminiService.result().description}}</p>
+	</div>
+}

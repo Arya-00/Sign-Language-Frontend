@@ -1,0 +1,63 @@
+@use "sass:map"; // Import map module
+
+// Light Theme
+$light-theme: (
+	background: #ffffff,
+	// text-color: #333333,
+	text-color: #ffffff,
+	primary: #6200ea,
+	overlay: #0000002e
+);
+
+// Dark Theme
+$dark-theme: (
+	background: #000000,
+	text-color: #ffffff,
+	primary: #bb86fc,
+	overlay: #e5f3ff29
+);
+
+$mobile-light: (
+	background1: url('/images/Mobile_Background1.svg'),
+	background2: url('/images/Mobile_Background2.svg'),
+	background3: url('/images/Mobile_Background3.svg'),
+);
+
+$mobile-dark: (
+	// background1: url('/images/Mobile_BackgroundD1.svg'),
+	// background2: url('/images/Mobile_BackgroundD1.svg'),
+	// background3: url('/images/Mobile_BackgroundD1.svg')
+	background1: black,
+	background2: black,
+	background3: black
+);
+
+$pc-light: (
+	background1: url('/images/PC_Background1.svg'),
+	background2: url('/images/PC_Background2.svg'),
+	background3: url('/images/PC_Background3.svg'),
+);
+
+$pc-dark: (
+	// background1: url('/images/PC_BackgroundD1.svg'),
+	// background2: url('/images/PC_BackgroundD1.svg'),
+	// background3: url('/images/PC_BackgroundD1.svg')
+	background1: black,
+	background2: black,
+	background3: black
+);
+
+// Mixin to Apply Theme Variables
+@mixin set-theme($theme-map) {
+	--background: #{map.get($theme-map, background)};
+	--text-color: #{map.get($theme-map, text-color)};
+	--primary: #{map.get($theme-map, primary)};
+	--overlay: #{map.get($theme-map, overlay)};
+}
+
+// Mixin to Apply Platform Background
+@mixin set-platform($platform-map) {
+	--background1: #{map.get($platform-map, background1)};
+	--background2: #{map.get($platform-map, background2)};
+	--background3: #{map.get($platform-map, background3)};
+}

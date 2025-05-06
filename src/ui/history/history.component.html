@@ -1,0 +1,11 @@
+@if (!chatHistory().length) {
+	<h2>No History to Show</h2>
+} @else {
+	@for (item of chatHistory(); track item.chat) {
+		<div id="chat" (click)="openDialog(item)">
+			<h1>{{ truncate(item.chat) }}</h1>
+			<mat-icon (click)="deleteItem($event, item.chat)">delete</mat-icon>
+		</div>
+	}
+}
+  

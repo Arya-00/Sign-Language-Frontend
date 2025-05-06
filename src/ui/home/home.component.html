@@ -1,0 +1,15 @@
+<main>
+	<div [ngClass]="themeService.isMobile() ? 'greet-phone' : 'greet'">
+		<h1>Sign Detection Made Easy</h1>
+		<h2>Upload & Translate!</h2>
+	</div>
+	<div [ngClass]="themeService.isMobile() ? 'grid-phone' : 'grid'">
+		@for(item of links; track item) {
+			<div class="grid-item grid-item-{{item.id}}" [routerLink]="[item.path]" [queryParams]="item.queryParams">
+				<button mat-icon-button aria-label="Go to Link" routerLinkActive="router-link-active">
+					<mat-icon>north_east</mat-icon>
+				</button>
+			</div>
+		}
+	</div>
+</main>

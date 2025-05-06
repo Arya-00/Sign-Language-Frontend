@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+@use "theme/theme" as *;
+
+@font-face {
+	font-family: geist;
+	src: url('/fonts/Geist-Regular.ttf');
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: geist;
+}
+
+:root {
+	@include set-theme($light-theme);
+}
+
+.dark-theme {
+	@include set-theme($dark-theme);
+}
+
+.mobile {
+	@include set-platform($mobile-light);
+}
+
+.mobile.dark-theme {
+	@include set-platform($mobile-dark);
+}
+
+.pc {
+	@include set-platform($pc-light);
+}
+
+.pc.dark-theme {
+	@include set-platform($pc-dark);
+}
+
+html,
+body {
+	width: 100%;
+	height: 100dvh;
+}
+
+body {
+	background: var(--background2);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: var(--text-color);
+	transition: background 0.3s, color 0.3s;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-dialog-container {
+	color: var(--text-color);
+}
+
+.mat-mdc-dialog-surface {
+	background-color: #464646 !important;
+}
+
+.mat-mdc-dialog-title, .mat-mdc-dialog-content {
+	color: var(--text-color) !important;
+}

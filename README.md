@@ -1,3 +1,11 @@
+## Remaining Taks
+* History Page
+* Video Feature
+* Learning Page
+* Quiz page
+* Sign Language Emojis
+
+--
 # SignLanguageFrontend
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.

@@ -1,0 +1,25 @@
+@if (isLoaded) {
+	<chat></chat>
+	<button mat-fab aria-label="Example icon button with a delete icon" id="history" [routerLink]="['/history']" routerLinkActive="router-link-active" >
+		<mat-icon>history</mat-icon>
+	</button>
+} @else {
+	<input id="file-upload" type="file" (change)="onFileSelected($event)" [accept]="source === 'video' ? 'video/mp4' : 'image/*'">
+	<label for="file-upload" id="image-preview" matRipple>
+		@if(source === 'video' && uploaded === true) {
+			<video [src]="imageSrc" alt="Uploaded Video" controls>
+				Your browser does not support the video tag.
+			</video>
+		} @else {
+			<img [src]="imageSrc" alt="Uploaded Image">
+		}
+	</label>
+	<button id="submit" mat-fab aria-label="Proceed" (click)="submit()">
+		<mat-icon>arrow_forward_ios</mat-icon>
+	</button>
+	@if(loading) {
+		<div class="spinner-overlay">
+			<mat-spinner diameter="48"></mat-spinner>
+		</div>
+	}
+}

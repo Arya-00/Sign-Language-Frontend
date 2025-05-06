@@ -1,0 +1,12 @@
+:host {
+	width: 100%;
+}
+.navbar {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	button mat-icon {
+		color: var(--text-color);
+	}
+}

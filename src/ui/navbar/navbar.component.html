@@ -1,0 +1,19 @@
+<div class="navbar">
+	<button mat-icon-button aria-label="Profile">
+		<mat-icon routerLink="{{navigations[nav()].link}}"> {{ navigations[nav()].icon }} </mat-icon>
+	</button>
+	<h1>Sign Language</h1>
+	<button mat-icon-button [matMenuTriggerFor]="menu">
+		<mat-icon>menu</mat-icon>
+	</button>
+	<mat-menu #menu="matMenu">
+		<button mat-menu-item (click)="themeService.toggleTheme()">
+			<mat-icon>{{ themeService.themeIcon() }}</mat-icon>
+			Theme
+		</button>
+		<button mat-menu-item [routerLink]="['/history']">
+			<mat-icon>history</mat-icon>
+			History
+		</button>
+	</mat-menu>
+</div>
