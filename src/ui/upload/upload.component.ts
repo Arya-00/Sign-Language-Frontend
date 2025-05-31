@@ -10,7 +10,6 @@ import { ChatComponent } from "../chat/chat.component";
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { VideoResult } from '../../interfaces/interfaceUtil';
-import { HistoryService } from '../../services/history.service';
 
 @Component({
 	selector: 'upload',
@@ -52,24 +51,6 @@ export class UploadComponent {
 			this.uploaded = true;
 		}
 	}
-
-	private uploadVideo(): Promise<void> {
-		const formData = new FormData();
-		formData.append('file', this.file);
-	
-		return new Promise((resolve, reject) => {
-			this.http.post('http://localhost:5000/video', formData).subscribe({
-				next: (res: any) => {
-					console.log('Server response:', res);
-					resolve(res.response);
-				},
-				error: (err) => {
-					console.error('Upload error:', err);
-					reject(err);
-				}
-			});
-		});
-	}
 	
 	private resetUploadState(): void {
 		this.uploaded = false;
@@ -88,10 +69,10 @@ export class UploadComponent {
 	
 		try {
 			if (this.source === 'video') {
-				const response: VideoResult = await this.uploadVideo() as any as VideoResult;
+				const response = await this.geminiService.geminiUploadVideo(this.file) as any as VideoResult;
 				this.geminiService.videoResult.set(response);
 			} else {
-				await this.geminiService.run(this.base64String, this.file.type);
+				await this.geminiService.geminiUploadImage(this.file);
 			}
 			this.isLoaded = true;
 		} catch (error) {

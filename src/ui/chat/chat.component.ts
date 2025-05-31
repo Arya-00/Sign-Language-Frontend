@@ -11,6 +11,4 @@ import { MatIconModule } from '@angular/material/icon';
 export class ChatComponent {
 	@Input() imageSource: string | ArrayBuffer | null = null;
 	protected geminiService = inject(GeminiService);
-
-	constructor() {}
 }

@@ -3,6 +3,7 @@ import { HomeComponent } from '../ui/home/home.component';
 import { UploadComponent } from '../ui/upload/upload.component';
 import { ChatComponent } from '../ui/chat/chat.component';
 import { HistoryComponent } from '../ui/history/history.component';
+import { LearnComponent } from '../ui/learn/learn/learn.component';
 
 export const routes: Routes = [
 	{
@@ -20,5 +21,9 @@ export const routes: Routes = [
 	{
 		path: 'history',
 		component: HistoryComponent
+	},
+	{
+		path: 'learn',
+		component: LearnComponent
 	}
 ];

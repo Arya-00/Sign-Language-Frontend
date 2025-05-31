@@ -1,0 +1,27 @@
+:host {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	overflow: scroll;
+}
+
+.grid-container {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(13, auto);
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.img-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+img {
+	width: 50%;
+}

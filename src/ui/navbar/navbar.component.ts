@@ -41,6 +41,14 @@ export class NavbarComponent {
 		'/history': {
 			link: '/',
 			icon: 'arrow_back_ios'
+		},
+		'/learn': {
+			link: '',
+			icon: 'arrow_back_ios'
+		},
+		'/show': {
+			link: '',
+			icon: 'arrow_back_ios'
 		}
 	}
 
