@@ -1,6 +1,6 @@
 {
-	"name": "Sign Language Detection",
-	"short_name": "Sign Language Detection",
+	"name": "Sign Language",
+	"short_name": "Sign Language",
 	"start_url": "/",
 	"display": "standalone",
 	"background_color": "#6198ff",
